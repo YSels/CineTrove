@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>CineTrove</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <!-- dit is de header met de titel en de knoppen -->
+        <header class="app-header">
+            <a href="profile.html">
+                <button>
+                    <img src="public/yusuf.JPG" alt="Profile" class="header-avatar">
+                </button>
+            </a>
+            <h1>CineTrove</h1>
+            <button id="open-add-btn">
+                <img src="public/buttons/add.svg" alt="Add" class="nav-icon">
+            </button>
+        </header>
+        <!-- dit zijn de films -->
+        <main>
+            <h2> What's popular </h2>
+           
+            <div class="movie-scroller">
+                <div class="movie-card"><img src="https://i0.wp.com/mynintendonews.com/wp-content/uploads/2026/01/mario_galaxyy_movie_poster.jpeg?w=1080&ssl=1" alt="The Super Mario Galaxy Movie"></div>
+                <div class="movie-card"><img src="https://image.tmdb.org/t/p/original/udAxQEORq2I5wxI97N2TEqdhzBE.jpg" alt="Five Nights At Freddy's 2"></div>
+                <div class="movie-card"><img src="https://i.redd.it/keaxfxiu5ble1.jpeg" alt="Star Wars Episode III: Revenge of the Sith"></div>
+                <div class="movie-card"><img src="https://m.media-amazon.com/images/M/MV5BMWM5ZjQxM2YtNDlmYi00ZDNhLWI4MWUtN2VkYjBlMTY1ZTkwXkEyXkFqcGc@._V1_.jpg" alt="The Good, the Bad and the Ugly"></div>
+            </div>
+
+            <h2> Your collection </h2>
+
+            <div class="movie-scroller">
+                <div class="movie-card"><img src="https://media.themoviedb.org/t/p/w440_and_h660_face/tS0PedvA2mFO9VCHYwQpaU1K36U.jpg" alt="South Park Bigger, Longer & Uncut"></div>
+                <div class="movie-card"><img src="https://cdn.shortpixel.ai/spai/q_glossy+ret_img+to_auto/www.slantmagazine.com/wp-content/uploads/2002/11/southparkseasonone.jpg" alt="South Park Season One"></div>
+                <div class="movie-card"><img src="https://static.wikia.nocookie.net/southpark/images/d/d5/Season2.jpg/revision/latest?cb=20110330202426" alt="South Park Season Two"></div>
+                <div class="movie-card"><img src="https://i5.walmartimages.com/seo/South-Park-The-Complete-Third-Season-DVD-Comedy-Central-Comedy_5f18c8db-9813-4458-80f0-64c0f514001e.e806dd69f7033319655b85b46834b29b.jpeg" alt="South Park Season Three"></div>
+                <div class="movie-card"><img src="https://m.media-amazon.com/images/I/81s3vX8xefL._AC_UF894,1000_QL80_.jpg" alt="South Park Season Four"></div>
+            </div>
+
+            <h2> Your wishlist </h2>
+
+            <div class="movie-scroller">
+                <div class="movie-card"><img src="https://media.s-bol.com/BjOr8jZJWnlJ/AJYjq7/550x787.jpg" alt="Bullet Train"></div>
+                <div class="movie-card"><img src="https://m.media-amazon.com/images/I/81qg6UsqdSL._SL1500_.jpg" alt="Project Hail Mary 4K Ultra HD"></div>
+                <div class="movie-card"><img src="https://i.redd.it/keaxfxiu5ble1.jpeg" alt="Star Wars Episode III: Revenge of the Sith"></div>
+                <div class="movie-card"><img src="https://media.s-bol.com/gND5kOXOK0nk/WgkDjo/550x776.jpg" alt="The Creator"></div>
+                <div class="movie-card"><img src="https://media.s-bol.com/zg3lyAznvAmO/kRXyzXx/550x733.jpg" alt="Alien Romulus"></div>
+            </div>
+        </main>
+
+        <!-- dit zijn de knoppen voor de navigatiebalk -->
+        <nav class="bottom-nav">
+            <a href="index.html" class="active">
+                <button>
+                    <img src="public/buttons/home-active.svg" alt="Home" class="nav-icon"> 
+                </button>
+            </a>
+            <a href="collection.html">
+                <button>
+                    <img src="public/buttons/collection.svg" alt="Collection" class="nav-icon"> 
+               </button>
+            </a>
+            <a href="wishlist.html">
+                <button>
+                    <img src="public/buttons/wishlist.svg" alt="Wishlist" class="nav-icon"> 
+                </button>
+            </a>
+        </nav>
+
+    <div id="add-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Add Movie</h2>
+            <p>Search for a movie to add to your collection.</p>
+    
+            <input type="text" placeholder="Movie title..." class="search-input">
+    
+            <button id="close-modal-btn" class="close-btn">Cancel</button>
+        </div>
+    </div>
+
+    </div>
+
+</body>
+
+</html>
