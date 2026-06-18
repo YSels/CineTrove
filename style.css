@@ -52,7 +52,10 @@ h2 {
     position: fixed;        /* Haalt de balk uit de normale stroom van de pagina... */
     bottom: 20px;                 /* tilt de balk 20px aan de onderkant */
     width: calc(100% - 40px);   /* maakt de balk iets smaller dan het scherm */
-    left: 20px;                   /* centreert de balk */       
+    max-width: 390px;          /* maar nooit breder dan 390px, zodat het er op grote schermen niet uitziet als een enorme streep */
+    left: 50%;                 /* centreert de balk */
+    transform: translateX(-50%); /* precisieverbetering voor centring */
+    z-index: 90;              /* Zorgt dat deze balk altijd boven de hoofdcontent ligt, maar onder de pop-up vensters (die z-index 100 hebben) */
     display: flex;             /* Zet alle icoontjes netjes op één lijn */
     justify-content: space-around; /* Verdeelt de icoontjes met exact evenveel witruimte ertussen */
     background-color: rgba(37, 37, 37, 0.155); /* Semi-transparant donkergrijs voor het 'glassmorphism' effect */
