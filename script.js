@@ -1,14 +1,14 @@
-// 1. We zoeken de knoppen en het menu op in de HTML
+// knoppen ophalen in de html
 const openBtn = document.getElementById('open-add-btn');
 const closeBtn = document.getElementById('close-modal-btn');
 const modal = document.getElementById('add-modal');
 
-// 2. Als we op de knop in de header klikken, laat het menu zien
+// knop header interactie openen
 openBtn.addEventListener('click', function() {
     modal.style.display = 'flex';
 });
 
-// 3. Als we op Cancel klikken, verstop het menu weer
+// knop header interactie sluiten
 closeBtn.addEventListener('click', function() {
     modal.style.display = 'none';
 });

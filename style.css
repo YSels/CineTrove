@@ -1,220 +1,221 @@
-/* 1. RESET ALLES */
+/* reset */
 * {
-    margin: 0;                 /* Stript alle standaard witruimte aan de buitenkant weg */
-    padding: 0;                /* Stript alle standaard witruimte aan de binnenkant weg */
-    box-sizing: border-box;    /* Zorgt dat randen en opvulling niet buiten de ingestelde breedte/hoogte vallen */
+    margin: 0;                 /* witruimte buitenkant weg */
+    padding: 0;                /* witruimte binnenkant weg */
+    box-sizing: border-box;    /* zorgt ervoor dat randen en opvulling niet buiten de ingestelde breedte/hoogte vallen */
 }
 
-/* Zorgt dat content nooit achter de navigatiebalk blijft haken */
+/* zorgt dat content nooit achter de navigatiebalk blijft haken */
 main {
     padding-bottom: 120px; 
 }
 
-/* 2. DE ACHTERGROND */
+/* achtergrond */
 body {
-    background-color: #000000; /* Maakt het hele browserscherm achter de app zwart */
-    display: flex;             /* Zet flexbox aan om de app te kunnen positioneren */
-    justify-content: center;   /* Zet je app exact in het horizontale midden van het beeldscherm */
+    background-color: #000000; /* zwarte achtergrond voor de app */
+    display: flex;             /* zet flexbox aan om de app te kunnen positioneren */
+    justify-content: center;   /* komt hierdoor precies in het midden */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; /* Laadt het beste native lettertype (zoals Apple's San Francisco) */
-    -webkit-font-smoothing: antialiased; /* Zorgt dat de tekst er op hoge resolutie schermen haarscherp uitziet */
+    -webkit-font-smoothing: antialiased; /* zorgt dat de tekst er op hoge resolutie schermen haarscherp uitziet */
 }
 
-/* 3. TUSSENKOPPEN */
+/* tussenkoppen */
 h2 {
-    color: white;              /* Witte tekst op de donkere achtergrond */
-    margin-left: 20px;         /* Duwt de tekst 20px van de linkerrand van de app af */
-    margin-bottom: 15px;       /* Creëert 15px ademruimte tussen de titel en de kaarten eronder */
+    color: white;              /* tekst wit op donkere achtergrond */
+    margin-left: 20px;         /* duwt de tekst 20px van de linkerrand van de app af */
+    margin-bottom: 15px;       /* zorgt ervoor dat er 15px ademruimte tussen de titel en de kaarten eronder is */
 }
 
-/* 4. JOUW IPHONE SCHERM */
+/* iphone scherm */
 .app-container {
-    max-width: 430px;          /* De exacte breedte van een grote smartphone (bijv. iPhone 14 Pro Max) */
-    width: 100%;               /* Neemt alle beschikbare breedte in, tot maximaal die 430px */
-    min-height: 100vh;         /* Vult altijd minimaal 100% van de schermhoogte (Viewport Height) */
-    background-color: #1A1A1A; /* De donkergrijze CineTrove achtergrondkleur */
-    color: #FFFFFF;            /* Standaard witte tekst op deze donkergrijze achtergrond */
-    position: relative;        /* Cruciaal: dit is het ankerpunt om de navigatiebalk onderaan vast te kunnen plakken */
-    overflow-x: hidden;        /* Blokkeert horizontaal scrollen zodat de gebruiker de app niet kan 'breken' door opzij te vegen */
+    max-width: 430px;          /* breedte gebaseerd op Iphone 14 Pro Max */
+    width: 100%;               /* neemt alle beschikbare breedte in, tot maximaal die 430px */
+    min-height: 100vh;         /* vult altijd minimaal 100% van de schermhoogte */
+    background-color: #1A1A1A; /* de donkergrijze CineTrove achtergrondkleur */
+    color: #FFFFFF;            /* witte tekst op deze donkergrijze achtergrond */
+    position: relative;        /* plakt de navbar onderaan */
+    overflow-x: hidden;        /* kan niet horizontaal scrollen (appwijze, crouselmenu natuurlijk wel) */
 }
 
-/* 5. DE HEADER */
+/* header */
 .app-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px; /* Geeft wat ruimte aan de binnenkant van de balk, zodat je logo niet tegen de randen plakt */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Hetzelfde subtiele glanslijntje als bij je navigatiebalk, maar dan onderaan! */
-    margin-bottom: 25px; /* Duwt alles wat ONDER de header staat (zoals 'What's popular') 25px naar beneden */
+    display: flex;          /* flexbox voor header voor positionering van logo en avatar */
+    justify-content: space-between;           /* duwt het logo naar links en de avatar naar rechts, met zoveel mogelijk ruimte ertussen */
+    align-items: center;               /* zorgt dat het logo en de avatar verticaal netjes in het midden van de header staan, zelfs als ze verschillende hoogtes hebben */
+    padding: 20px; /* geeft wat ruimte aan de binnenkant van de balk, zodat je logo niet tegen de randen plakt */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* hetzelfde subtiele glanslijntje als bij je navigatiebalk, maar dan onderaan! */
+    margin-bottom: 25px; /* duwt alles onder header naar beneden */
 }
 
-/* 6. DE NAVIGATIEBALK */
+/* navbar */
 .bottom-nav {
-    position: fixed;        /* Haalt de balk uit de normale stroom van de pagina... */
+    position: fixed;             /* laat de balk op dezelfde plek staan, zelfs als je scrollt */
     bottom: 20px;                 /* tilt de balk 20px aan de onderkant */
     width: calc(100% - 40px);   /* maakt de balk iets smaller dan het scherm */
-    max-width: 390px;          /* maar nooit breder dan 390px, zodat het er op grote schermen niet uitziet als een enorme streep */
+    max-width: 390px;          /* nooit breder dan 390px, zodat het er op grote schermen niet uitziet als een enorme streep */
     left: 50%;                 /* centreert de balk */
     transform: translateX(-50%); /* precisieverbetering voor centring */
-    z-index: 90;              /* Zorgt dat deze balk altijd boven de hoofdcontent ligt, maar onder de pop-up vensters (die z-index 100 hebben) */
-    display: flex;             /* Zet alle icoontjes netjes op één lijn */
-    justify-content: space-around; /* Verdeelt de icoontjes met exact evenveel witruimte ertussen */
-    background-color: rgba(37, 37, 37, 0.155); /* Semi-transparant donkergrijs voor het 'glassmorphism' effect */
-    backdrop-filter: blur(15px); /* Creëert een waas over de content die áchter de balk ligt */
-    -webkit-backdrop-filter: blur(15px); /* Hetzelfde waas-effect, specifiek voor de Safari browser van Apple */
-    padding-bottom: 15px;      /* Binnenkant-ruimte aan de onderkant */
-    padding-top: 15px;         /* Binnenkant-ruimte aan de bovenkant */
-    border-radius: 30px;       /* Maakt de balk mooi rond en vriendelijk */
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Een super subtiel, licht doorschijnend lijntje aan de bovenkant */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); /* Een zachte schaduw onder de balk voor een zwevend effect */
+    z-index: 90;              /* ligt boven alles, behalve popups */
+    display: flex;             /* alle icoontjes op 1 lijn */
+    justify-content: space-around; /* icootnjes evenveel witruimte tussen */
+    background-color: rgba(37, 37, 37, 0.155); /* semitransparant voor liquid glass effect */
+    backdrop-filter: blur(15px); /*waas voor content die achter balk ligt */
+    -webkit-backdrop-filter: blur(15px); /* waas voor content die achter balk ligt voor safari */
+    padding-bottom: 15px;      /* binnenruimte voor onderkant */
+    padding-top: 15px;         /* binnenruimte voor bovenkant */
+    border-radius: 30px;       /* 30px ronde hoeken */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* lijntje aan de bovenkant */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); /* schaduw voor hovering effect */
 }
 
-/* 7. KNOPPEN */
+/* knoppen */
 button {
-    background-color: transparent; /* Verwijdert de lelijke standaard grijze achtergrondkleur van de browser */
-    border: none;              /* Verwijdert de standaard zwarte randlijn */
-    color: white;              /* Maakt de tekst of het icoon in de knop wit */
-    font-size: 24px;           /* Zorgt voor een lekker groot en makkelijk klikbaar icoon */
+    background-color: transparent; /* geen lelijke standaard achtergrond */
+    border: none;              /* geen border */
+    color: white;              /* witte knop */
+    font-size: 24px;           /* groot en makkelijk klikbaar */
 }
 
-/* 8. INDIVIDUELE FILMKAARTEN */
+/* film/show poster cards */
 .movie-card {
-    width: 120px;              /* De vaste breedte van een standaard filmposter-kaartje */
-    height: 180px;             /* De vaste hoogte van het kaartje */
-    border-radius: 10px;       /* Zorgt voor mooie, vriendelijk afgeronde hoekjes */
-    flex-shrink: 0;            /* Beveiliging: zorgt dat de browser deze kaarten NOOIT stiekem in elkaar mag drukken */
+    width: 120px;              /* vaste breedte */
+    height: 180px;             /* vaste hoogte */
+    border-radius: 10px;       /* 10px ronde hoeken */
+    flex-shrink: 0;            /* zorgt ervoor dat de cards niet in elkaar worden geklemd */
 }
 
-/* 9. DE HORIZONTALE SCROLLER */
+/* carousel menu scroller */
 .movie-scroller {
-    display: flex;             /* Plaatst de filmkaarten in een horizontale rij naast elkaar */
-    gap: 22px;                 /* Forceert exact 22px lege ruimte tussen elke poster */
-    overflow-x: auto;          /* Maakt het daadwerkelijke links/rechts scrollen mogelijk */
-    padding: 20px;             /* Voegt wat ademruimte toe aan de binnenkant van de balk */
+    display: flex;             /* alle posters in een rij naast elkaar */
+    gap: 22px;                 /* 22px ruimte tussen elke poster */
+    overflow-x: auto;          /* maakt het carousel mogelijk */
+    padding: 20px;             /* ruimte binnenin de balk */
 }
 .movie-scroller::-webkit-scrollbar {
-    display: none;             /* Een trucje: laat je wel scrollen, maar verbergt de lelijke standaard Windows/Mac scrollbalk */
+    display: none;             /* scrollen zonder lelijke windows/apple scrollbar */
 }
 
-/* 10. DE FILMPOSTER */
+/* film/show posters */
 .movie-card img {
-    width: 100%;               /* Dwingt de afbeelding om de volledige breedte van z'n kaart te vullen */
-    height: 100%;              /* Dwingt de afbeelding om de volledige hoogte van z'n kaart te vullen */
-    object-fit: cover;         /* Superbelangrijk: vult het vak zónder de afbeelding lelijk uit te rekken (snijdt automatisch bij) */
-    border-radius: 10px;       /* Geeft de afbeelding exact dezelfde ronde hoeken als de kaart eromheen */
+    width: 100%;               /* dwingt volledige breedte */
+    height: 100%;              /* dwingt volledige hoogte */
+    object-fit: cover;         /* vulling zonder lelijke uitrekking */
+    border-radius: 10px;       /* geeft poster ronde hoeken net zoals de card */
 }
 
-/* 11. PROFIEL TOPBALK & TERUGKNOP */
+/* profiel topbar */
 .profile-topbar {
-    padding: 20px;             /* Zorgt voor ruimte bovenaan, zodat de knop niet strak tegen het randje van je scherm zit */
+    padding: 20px;             /* ruimte zodat niet krap tegen rand zit */
 }
 .back-btn {
-    font-size: 24px;           /* Maakt de <- terugknop lekker groot */
+    font-size: 24px;           /* knopgrootte groot genoeg */
 }
 
-/* 12. PROFIEL INFORMATIE */
+/* profielinformatie */
 .profile-info {
-    display: flex;             /* Flexbox modus aan voor deze groep */
-    flex-direction: column;    /* Belangrijk: zet avatar, naam en datum onder elkaar in plaats van naast elkaar */
-    align-items: center;       /* Centreert alles netjes recht onder elkaar in het midden */
-    margin-bottom: 30px;       /* Duwt de eerstvolgende elementen (zoals je opgeslagen films) 30px naar beneden */
+    display: flex;             /* flexbox aan */
+    flex-direction: column;    /* zet avatar, naam en datum onder elkaar */
+    align-items: center;       /* centreert alles in het midden */
+    margin-bottom: 30px;       /* duwt het eerstvolgende 30px naar beneden */
 }
 
-/* 13. DE PROFIELFOTO */
+/* profielfoto */
 .avatar {
-    width: 80px;               /* Maakt de foto exact 80px breed... */
-    height: 80px;              /* ...en 80px hoog (een exact vierkant) */
-    border-radius: 50%;        /* De 50% vormt het vierkant om tot een perfecte, ronde cirkel */
-    object-fit: cover;         /* Voorkomt dat een langwerpige geüploade foto vervormt tot een ei */
-    margin-bottom: 10px;       /* Maakt 10px ruimte tussen de profielfoto en de naam eronder */
+    width: 80px;               /* foto 80px breed */
+    height: 80px;              /* en 80px hoog */
+    border-radius: 50%;        /* 50% radius zorgt voor cirkel */
+    object-fit: cover;         /* voorkomt dat de afbeelding uitgerekt wordt */
+    margin-bottom: 10px;       /* 10px ruimte tussen avatar en naam */
 }
 
-/* 14. REGISTRATIEDATUM */
+/* registratiedatum */
 .join-date {
-    color: #888888;            /* Maakt deze tekst subtiel grijs, zodat de naam meer opvalt */
-    font-size: 14px;           /* Maakt het lettertype ietsjes kleiner dan de rest */
-    margin-top: 5px;           /* Geeft 5px afstand vanaf de naam die erboven staat */
+    color: #888888;            /* subtiel grijs voor opvallendheid */
+    font-size: 14px;           /* lettertype is kleiner dan de rest */
+    margin-top: 5px;           /* 5px afstand vanaf de username */
 }
 
-/* 15. FILM GRID (Rasterweergave) */
+/* film grid */
 .movie-grid {
-    display: grid;             /* Activeert het grid (raster) systeem voor dit element */
-    grid-template-columns: repeat(3, 1fr); /* Splitst het scherm op in 3 kolommen die alle drie 1 gelijke portie (1 fraction) innemen */
-    gap: 20px;                 /* Maakt 20px ruimte tussen alle rijen en kolommen */
-    padding: 20px;             /* Voegt 20px ademruimte toe vanaf de randen van je app */
-    padding-bottom: 120px;     /* CRUCIAAL: Extra ruimte onderaan, zodat de onderste rij posters niet achter je navigatiebalk valt! */
+    display: grid;             /* grid voor de films / shows */
+    grid-template-columns: repeat(3, 1fr); /* splits op in 3 kolommen met 1 fraction */
+    gap: 20px;                 /* 20px ruimte tussen elementen */
+    padding: 20px;             /* 20px ruimte rond de grid */
+    padding-bottom: 120px;     /* extra ruimte onderaan zodat films neit achter navigatiebar vallen */
 }
 .movie-grid .movie-card {
-    width: 100%;               /* Overschrijft de 120px regel: de kaart past zich nu automatisch aan de kolombreedte aan */
-    height: auto;              /* De hoogte mag vrij meebewegen met de breedte */
-    aspect-ratio: 2 / 3;       /* Forceert ongeacht de schermgrootte altijd een bioscoopposter-verhouding (2 breed, 3 hoog) */
+    width: 100%;               /* kaart past zich automatisch aan de kolombreedte aan */
+    height: auto;              /* hoogte kan vrij meebewegen met de breedte */
+    aspect-ratio: 2 / 3;       /* forceert altijd een bioscoopposter-verhouding (2 breed, 3 hoog) */
 }
 
-/* 16. POP-UP ACHTERGROND */
+/* popup achtergrond */
 .modal-overlay {
-    display: none;             /* Blijft standaard onzichtbaar */
-    position: fixed;        /* Ligt over de app heen */
-    top: 0;                    /* Begint helemaal in de linker... */
-    left: 0;                   /* ...bovenhoek */
-    width: 100%;               /* Spant over de hele breedte */
-    height: 100%;              /* Spant over de hele hoogte */
-    background-color: rgba(0, 0, 0, 0.8); /* Maakt die laag zwart, maar met 80% ondoorzichtigheid zodat je de app er nog vaag doorheen ziet */
-    z-index: 100;              /* Deze hoge prioriteit zorgt dat het fysiek bovenop al je andere knoppen en balken ligt */
-    justify-content: center;   /* Zet het pop-up venstertje zelf horizontaal in het midden */
-    align-items: flex-end;       /* Dwingt het naar beneden */
+    display: none;             /* blijft onzichtbaar */
+    position: fixed;        /* plaatsing is over de app heen */
+    top: 0;                    /* begint bovenaan */
+    left: 0;                   /* in de linker bovenhoek */
+    width: 100%;               /* hele breedte */
+    height: 100%;              /* hele hoogte */
+    background-color: rgba(0, 0, 0, 0.8); /* zwarte laag met 80% ondoorzichtigheid */
+    z-index: 100;              /* hoge prioriteit waardoor het bovenop al het andere ligt */
+    justify-content: center;   /* popup venstertje horizontaal in het midden */
+    align-items: flex-end;       /* dwingt het naar beneden */
 }
 
-/* 17. POP-UP VENSTER */
+/* popup venster */
 .modal-content {
-    background-color: #1A1A1A; /* De app's standaard donkergrijze kleur */
-    width: 100%;               /* Neemt de volledige breedte van het pop-up venster in */
-    padding: 30px;             /* Ruimte binnenin voor zoekbalk en tekst*/
-    padding-bottom: 50px;       /* Extra ruimte onderaan zodat de knoppen niet tegen de rand plakken */
+    background-color: #1A1A1A; /* donkergrijze achtergrond */
+    width: 100%;               /* volledige breedte van scherm voor de popup */
+    padding: 30px;             /* ruimte binnen in voor search*/
+    padding-bottom: 50px;       /* extra ruimte zodat knoppen niet tegen rand plakken */
 
     /*vormgeving randen*/
-    border-radius: 25px 25px 0 0; /* Maakt de bovenste hoeken rond, maar de onderste hoeken blijven vierkant */
+    border-radius: 25px 25px 0 0; /* bovenste hoeken rond, onderste niet */
     border-top: 1px solid #E3D05B; /* gele bovenrand */
     border-bottom: none; /* geen onderrand */
     border-left: none; /* geen linkerrand */
     border-right: none; /* geen rechterrand */
 
-    text-align: center;        /* Centreert de tekst in het pop-up venster */
+    text-align: center;        /* gecentreerde tekst pop-up venster */
 
     /*animatie naar boven popup*/
-    animation: slideUp 0.3s ease-out; /* Voert de slideUp animatie uit over 0.3 seconden */
+    animation: slideUp 0.3s ease-out; /* slideup animatie in 0.3 seconden */
 }
 
-/* 18. ZOEKVELD */
+/* zoekveld */
 .search-input {
-    width: 100%;               /* Rekent het zoekveld uit over de volle breedte van het pop-up venster */
-    padding: 10px;             /* Binnenin-ruimte zodat je ingetypt tekst goed leesbaar is en niet tegen de lijntjes kleeft */
-    margin: 15px 0;            /* Voegt 15px marge toe aan de boven- en onderkant van het invulveld */
-    border-radius: 5px;        /* Zorgt voor zachte hoekjes van het zoekveld zelf */
-    border: none;              /* Verbergt het standaard kader dat browsers om invulvelden plaatsen */
+    width: 100%;               /* zoekveld over de volledige breedte van popup venster */
+    padding: 10px;             /* binnenin ruimte voor duidelijke leesbaarheid */
+    margin: 15px 0;            /* invulveld marge van 15px boven en onder */
+    border-radius: 5px;        /* 5px hoeken (licht rond) */
+    border: none;              /* verbergt het standaard kader */
 }
 
-/* 19. NAVIGATIE ICOONTJES */
+/* navigatie icoontjes */
 .nav-icon {
-    width: 35px;               /* Forceert een vaste breedte van 35px voor elk icoontje... */
-    height: 35px;              /* ...en een vaste hoogte van 35px. Dit zorgt dat ze allemaal visueel even zwaar en symmetrisch zijn. */
-    opacity: 0.5;              /* Maakt de icoontjes standaard halfdoorzichtig, zodat ze niet teveel aandacht trekken */
-    transition: all 0.2s ease;        /* Voegt een soepele overgang toe voor alle veranderingen (zoals hover-effect) */
+    width: 35px;               /* standaard breedte van 35px */
+    height: 35px;              /* standaard hoogte van 35px */
+    opacity: 0.5;              /* icoontjes half doorzichtig */
+    transition: all 0.2s ease;        /* soepele overgang */
 }
 
-/* Hover-effect voor navigatie icoontjes */
+/* hover effect voor navigatie icoontjes */
 .active .nav-icon {
-    opacity: 1;                /* Maakt het actieve icoontje volledig zichtbaar, zodat gebruikers duidelijk kunnen zien waar ze zijn */
-    transform: scale(1.1);     /* Laat het actieve icoontje iets groter worden (10% vergroting) voor een speels effect */
-/* 20. DE ACTIEVE PAGINA STATUS */
+    opacity: 1;                /* actieve icoontje wordt volledig zichtbaar */
+    transform: scale(1.1);     /* actieve icoontje wordt iets groter */
+
+ /* actieve pagina status */
 .active .nav-icon {
     opacity: 1;
     transform: scale(1.1);
     
-    /* LET OP: De kleur-truc (invert etc) én de drop-shadow staan nu achter elkaar in één lange filter! */
+    /* De kleur-truc (invert etc) én de drop-shadow staan nu achter elkaar in één lange filter */
     filter: invert(86%) sepia(21%) saturate(1003%) hue-rotate(352deg) brightness(97%) contrast(93%) drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); 
     }
 }
 
-/* 20. PROFIEL AVATAR IN DE HEADER */
+/* profile avatar header */
 .header-avatar {
     width: 32px;
     height: 32px;
@@ -223,7 +224,7 @@ button {
     border: 1px solid rgba(255, 255, 255, 0.2);   
 }
 
-/* 21. ANIMATIE VOOR POP-UP VENSTER */
+/* animatie slideup menu */
 @keyframes slideUp {
     from {
         transform: translateY(100%); /* het startpunt van de animatie*/
